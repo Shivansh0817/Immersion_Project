@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Progress Bar</title>
+    <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 16px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+    .progress-container {
+      margin-top: 1rem;
+    }
+    .progress-bar-wrapper {
+      width: 100%;
+      background: #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      height: 20px;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #4caf50;
+      transition: width 2s linear;
+    }</style>
+</head>
+<body>
+
+  <button onclick="addProgressBar()">Add</button>
+
+  <div class="progress-container" id="container"></div>
+
+  <script>
+    function addProgressBar() {
+      const container = document.getElementById('container');
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'progress-bar-wrapper';
+
+      const bar = document.createElement('div');
+      bar.className = 'progress-bar';
+
+      wrapper.appendChild(bar);
+      container.appendChild(wrapper);
+
+      requestAnimationFrame(() => {
+        bar.style.width = '100%';
+      });
+    }
+  </script>
+
+    
+</body>
+</html>
